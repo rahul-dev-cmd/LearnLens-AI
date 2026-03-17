@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>LeaenLens AI</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="popup.css" />
+</head>
+<body>
+
+  <div id="setup-screen" class="screen hidden">
+    <div class="setup-inner">
+      <div class="logo-mark">✦</div>
+      <h1 class="setup-title">Learn Lens AI</h1>
+      <p class="setup-sub">Paste your OpenRouter API key to get started. Stored locally — never sent anywhere except the AI API.</p>
+      <div class="input-group">
+        <input type="password" id="api-key-input" placeholder="gsk_..." autocomplete="off" />
+        <button id="save-key-btn" class="btn-primary">Activate</button>
+      </div>
+      <a href="https://console.groq.com" target="_blank" class="get-key-link">Get a free API key →</a>
+    </div>
+  </div>
+
+  <div id="main-screen" class="screen hidden">
+    <header class="app-header">
+      <div class="header-left">
+        <span class="logo-dot">✦</span>
+        <span class="app-name">LearnLens AI</span>
+      </div>
+      <div class="header-right">
+        <span id="page-type-badge" class="badge">—</span>
+        <button id="settings-btn" class="icon-btn" title="Settings">⚙</button>
+      </div>
+    </header>
+
+    <div class="page-title-bar">
+      <p id="page-title-text" class="page-title">Detecting page...</p>
+    </div>
+
+    <div class="action-row">
+      <button id="summarize-btn" class="action-btn">
+        <span class="btn-icon">⚡</span><span>Summarize</span>
+      </button>
+      <button id="quiz-btn" class="action-btn">
+        <span class="btn-icon">🧠</span><span>Quiz Me</span>
+      </button>
+    </div>
+
+    <div id="loading-state" class="state-block hidden">
+      <div class="loader-ring"></div>
+      <p id="loading-text" class="loading-label">Extracting content...</p>
+    </div>
+
+    <div id="error-state" class="state-block hidden">
+      <p class="error-icon">⚠</p>
+      <p id="error-message" class="error-text">Something went wrong.</p>
+      <button id="retry-btn" class="btn-ghost">Try Again</button>
+    </div>
+
+    <div id="summary-result" class="result-block hidden">
+      <div class="result-section">
+        <div class="section-label"><span class="section-icon">📝</span> Summary</div>
+        <p id="summary-text" class="summary-body"></p>
+      </div>
+      <div class="result-section">
+        <div class="section-label"><span class="section-icon">🔑</span> Key Takeaways</div>
+        <ul id="takeaways-list" class="takeaways"></ul>
+      </div>
+      <button id="quiz-from-summary-btn" class="btn-outline full-width">🧠 Now Quiz Me on This</button>
+    </div>
+
+    <div id="quiz-result" class="result-block hidden">
+      <div class="quiz-header">
+        <div class="section-label"><span class="section-icon">🧠</span> Quiz</div>
+        <span id="quiz-progress" class="quiz-progress">1 / 5</span>
+      </div>
+      <div id="quiz-container"></div>
+      <div id="quiz-complete" class="hidden">
+        <div class="score-card">
+          <p class="score-label">Your Score</p>
+          <p id="score-value" class="score-value">— / 5</p>
+        </div>
+        <button id="restart-quiz-btn" class="btn-outline full-width">↺ Restart Quiz</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="settings-panel" class="overlay hidden">
+    <div class="overlay-inner">
+      <div class="overlay-header">
+        <span>Settings</span>
+        <button id="close-settings-btn" class="icon-btn">✕</button>
+      </div>
+      <p class="settings-label">API Key</p>
+      <div class="input-group">
+        <input type="password" id="settings-key-input" placeholder="sk-ant-api03-..." />
+        <button id="update-key-btn" class="btn-primary">Update</button>
+      </div>
+      <button id="clear-key-btn" class="btn-danger">Remove Key</button>
+    </div>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>
+```
+
+---
+
+### 📄 `popup.css` and `popup.js`
+These are the longest files — use the **zip download** I shared earlier. Unzip it, open the folder in VS Code, and all 6 files are already there ready to go. That's faster than copying 600+ lines of CSS and JS manually.
+
+---
+
+### Folder structure to create in VS Code:
+```
+learning-copilot/
+├── manifest.json
+├── popup.html
+├── popup.css         ← from zip
+├── popup.js          ← from zip
+├── icons/
+│   ├── icon16.png    ← from zip
+│   ├── icon48.png    ← from zip
+│   └── icon128.png   ← from zip
+└── src/
+    ├── background.js
+    └── content.js

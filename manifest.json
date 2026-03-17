@@ -1,0 +1,36 @@
+{
+  "manifest_version": 3,
+  "name": "Learn Lens AI",
+  "version": "1.0.0",
+  "description": "Summarize YouTube videos, articles, and docs — then quiz yourself instantly.",
+
+  "permissions": [
+    "activeTab",
+    "scripting",
+    "storage"
+  ],
+
+  "host_permissions": [
+    "https://openrouter.ai/*",
+    "https://*.youtube.com/*"
+  ],
+
+  
+
+  "action": {
+    "default_popup":"popup.html"
+   
+  },
+
+  "background": {
+    "service_worker": "src/background.js"
+  },
+
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["src/content.js"],
+      "run_at": "document_idle"
+    }
+  ]
+}
