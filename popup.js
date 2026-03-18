@@ -29,7 +29,7 @@ const quizBtn       = $("quiz-btn");
 const settingsPanel = $("settings-panel");
 const scoreValue    = $("score-value");
 
-// ── Init ──────────────────────────────────────────────────────────────────────
+// Init 
 async function init() {
   try {
     const hasKey = await sendToBackground({ action: "checkApiKey" });
@@ -81,7 +81,7 @@ async function extractContent() {
   }
 }
 
-// ── Summarize ─────────────────────────────────────────────────────────────────
+//  Summarize 
 async function handleSummarize() {
   try {
     summarizeBtn.disabled = true;
@@ -124,7 +124,7 @@ function renderSummary(data) {
   });
 }
 
-// ── Quiz ──────────────────────────────────────────────────────────────────────
+//  Quiz
 async function handleQuiz() {
   try {
     summarizeBtn.disabled = true;
@@ -265,7 +265,7 @@ function showQuizComplete() {
   quizComplete.classList.remove("hidden");
 }
 
-// ── View Management ───────────────────────────────────────────────────────────
+//  View Management 
 function setView(view) {
   state.currentView = view;
   hide(loadingState);
@@ -291,7 +291,7 @@ function show(el) { if (el) el.classList.remove("hidden"); }
 function hide(el) { if (el) el.classList.add("hidden"); }
 function truncate(str, n) { return str && str.length > n ? str.slice(0, n) + "…" : str || ""; }
 
-// ── Background Messenger ──────────────────────────────────────────────────────
+// Background Messenger 
 function sendToBackground(msg) {
   return new Promise((resolve) => {
     try {
@@ -310,7 +310,7 @@ function sendToBackground(msg) {
   });
 }
 
-// ── Event Listeners ───────────────────────────────────────────────────────────
+//  Event Listeners
 $("save-key-btn").addEventListener("click", async () => {
   const key = $("api-key-input").value.trim();
   if (key.length < 10) {
@@ -360,5 +360,5 @@ $("clear-key-btn").addEventListener("click", async () => {
   show(setupScreen);
 });
 
-// ── Boot ──────────────────────────────────────────────────────────────────────
+//  Boot
 init();
