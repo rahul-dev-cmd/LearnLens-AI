@@ -1,13 +1,13 @@
 const API_URL = "https://api.groq.com/openai/v1/chat/completions";
 const MODEL = "llama-3.1-8b-instant";
 
-// ── Get API Key ─────────────────────────────────────────
+//  Get API Key 
 async function getApiKey() {
   const result = await chrome.storage.local.get("apiKey");
   return result.apiKey || null;
 }
 
-// ── Call AI ─────────────────────────────────────────────
+//  Call AI 
 async function callAI(systemPrompt, userMessage) {
   const apiKey = await getApiKey();
   if (!apiKey) throw new Error("NO_API_KEY");
@@ -37,7 +37,7 @@ async function callAI(systemPrompt, userMessage) {
   return data.choices[0].message.content;
 }
 
-// ── Prompts ─────────────────────────────────────────────
+// Prompts 
 const SUMMARY_PROMPT = `
 You are a learning assistant.
 
@@ -71,7 +71,7 @@ Return ONLY valid JSON:
 }
 `;
 
-// ── Message Listener ────────────────────────────────────
+// Message Listener
 chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
 
   // Save API key
@@ -121,7 +121,7 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
       }
     })();
 
-    return true; // ✅ CRITICAL
+    return true; 
   }
 
   // Generate Quiz
@@ -155,7 +155,7 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
       }
     })();
 
-    return true; // ✅ CRITICAL
+    return true; 
   }
 
 });
