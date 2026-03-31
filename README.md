@@ -68,5 +68,5 @@ Open the extension popup.
 
 Enter your Groq API Key in the settings/setup field to enable AI features. 
 
-📝 Hackathon Submission
+ Hackathon Submission
 This project represents my first complete GitHub project with a full Git workflow. It was developed end-to-end—from ideation to final submission—for the Airia AI Agent Hackathon.
